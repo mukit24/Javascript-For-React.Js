@@ -1,8 +1,10 @@
 //Arrow function
-sayHello = () => "hellooo!!!";
-greeting = (name) => "Good Morning " + name;
-console.log(sayHello());
-console.log(greeting("Mukit"));
+intro = () => "Welcome To Javascript For React Tutorial";
+greeting = name => 'Good Evening ' + name;
+is_voter = (age) => age >= 18;
+console.log(intro());
+console.log(greeting('Mukit'));
+console.log(is_voter(17));
 
 // high order array methods
 const students = [
@@ -15,15 +17,20 @@ const students = [
 
 const ages = [23, 34, 12, 45, 21, 36, 9, 11, 18, 7, 45, 30, 13, 24];
 
-for (let i = 0; i < students.length; i++) {
-  console.log(students[i]);
+console.log('Using Normal loop');
+for(let i=0; i < students.length; i++){
+  console.log(students[i].name);
 }
 
 //forEach
 console.log("Using forEach");
 students.forEach(function (student) {
-  console.log(student);
+  console.log(student.name);
 });
+
+ages.forEach(function(age){
+  console.log(age);
+})
 
 //filter
 const voter = ages.filter(function (age) {
@@ -34,10 +41,18 @@ const voter = ages.filter(function (age) {
 
 console.log(voter);
 
-console.log("using arrow function...");
-const voter1 = ages.filter((age) => age >= 18);
+const cse_dis = students.filter(function(student){
+  if (student.discipline == 'CSE'){
+    return true;
+  }
+})
 
-console.log(voter1);
+console.log(cse_dis);
+
+console.log("using arrow function...");
+const twentyPlus = ages.filter(age => age >= 20);
+
+console.log(twentyPlus);
 
 const nonCSE = students.filter((student) => student.discipline != "CSE");
 
@@ -46,6 +61,9 @@ console.log(nonCSE);
 //map
 const studentNames = students.map((student) => student.name);
 console.log(studentNames);
+
+const stud_id = students.map(student => `Name: ${student.name} ID: ${student.ID}`);
+console.log(stud_id);
 
 const stud_dis = students.map(
   (student) => `${student.name}--${student.discipline}`
@@ -80,7 +98,9 @@ console.log(`${street} ${city} ${bivag}`);
 //spread operator
 const arr1 = ['mukit','sajid','nayan'];
 const arr2 = ['Dawod','shanto','rony'];
+const arr3 = [...arr1];
 const combined_arr = [...arr1,'Imran','pronab',...arr2];
+console.log(arr3);
 console.log(combined_arr);
 
 //Class
@@ -91,7 +111,7 @@ class Person{
     }
 
     walk(){
-        console.log('Person Is Walking');
+        console.log(this.name +' Is Walking');
     }
 }
 
